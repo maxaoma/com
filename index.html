@@ -119,7 +119,6 @@
         name: "Contact Creater",
         apk: "Contact Creater.apk",
         description: "With this app you can create high-quality contacts quickly.",
-        image: "contactcreater.webp",
         photos: ["contact1.webp", "contact2.webp", "contact3.webp"]
       }
     ];
@@ -131,7 +130,7 @@
     apps.forEach(function (appItem) {
       const hexDes = toHex(appItem.description);
       const href = "download.html?app=" + encodeURIComponent(appItem.apk) +
-                   "&png=" + encodeURIComponent(appItem.image) +
+                   "&png=" + encodeURIComponent(appItem.id) + ".webp" +
                    "&des=" + hexDes +
                    "&appId=" + appItem.id +
                    "&photos=" + encodeURIComponent(JSON.stringify(appItem.photos));
@@ -140,7 +139,7 @@
       div.className = "app-card";
       div.innerHTML = `
         <a href="#" class="app-content">
-          <img src="${appItem.image}" alt="${appItem.name}" onerror="this.src='default-icon.png'">
+          <img src="${appItem.id}.webp" alt="${appItem.name}" onerror="this.src='default-icon.png'">
           <div>
             <h3>${appItem.name}</h3>
           </div>
