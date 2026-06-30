@@ -3,108 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <title>Download App</title>
-  <link rel="icon" type="image/png" href="maxtocantona.png">
-  <link rel="shortcut icon" href="maxtocantona.png" type="image/png">
+<link rel="icon" type="image/png" href="maxtocantona.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="maxtocantona apps"/> 
-<style>
-  body {
-    font-family: sans-serif;
-    background: #081b29;
-    padding: 30px;
-    text-align: center;
-    margin:0;
-    color: #fff;
-  }
-  h2 {
-    margin: 10px 0;
-  }
-  p {
-    margin: 10px auto;
-    max-width: 320px;
-  }
-  .button {
-    padding: 12px 25px;
-    background: #0ef;
-    color: #000;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 16px;
-    margin-top: 20px;
-    display: inline-block;
-  }
-  #dlcount {
-    margin-top: 10px;
-    font-weight: bold;
-  }
-  .photo-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  .photo-grid img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin: 5px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  .photo-grid img:hover {
-    transform: scale(1.05);
-  }
 
-  /* Fullscreen overlay */
-  #overlay {
-    position: fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: rgba(0,0,0,0.9);
-    display:none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    flex-direction: column;
-  }
-  #overlay img {
-    max-width: 95%;
-    max-height: 80%;
-    border-radius: 8px;
-    object-fit: contain;
-  }
-  #overlay .close-btn {
-    animation: unoGlow 2s infinite alternate;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: white;
-    color: black;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  #overlay .nav-btn {
-    position: absolute;
-    top:50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
-    user-select: none;
-    padding: 10px;
-  }
-  #overlay .prev { left: 10px; }
-  #overlay .next { right: 10px; }
-  @keyframes unoGlow {
-  0%   { box-shadow: 0 0 10px 1px #11ff66; }
-  50%  { box-shadow: 0 0 20px 2px #2575fc; }
-  100% { box-shadow: 0 0 30px 3px #ff00ff; }
+<style>
+body {
+  font-family: sans-serif;
+  background: #081b29;
+  padding: 30px;
+  text-align: center;
+  margin: 0;
+  color: #fff;
 }
-  #t {
-    border: 3px solid #0ef;
-    box-shadow: 0 0 20px 2px #0ef
-  }
-  footer {
+
+h2 { margin: 10px 0; }
+
+p {
+  margin: 10px auto;
+  max-width: 320px;
+  line-height: 1.6;
+}
+
+.button {
+  padding: 12px 25px;
+  background: #0ef;
+  color: #000;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-top: 15px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.photo-grid img {
+  width: 100px;
+  height: 100px;
+  object-fit: fill;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid #0ef;
+}
+
+#overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+#overlay img {
+  max-width: 95%;
+  max-height: 80%;
+  border-radius: 8px;
+}
+
+.close-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #fff;
+  color: #000;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+footer {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -112,149 +100,113 @@
   background: #081b29;
   color: #fff;
   text-align: center;
-  padding: 10px 0;
+  padding: 10px;
   font-size: 14px;
   border-top: 1px solid #0ef;
 }
 </style>
-    
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+</head>
 
-// Firebase config
-const firebaseConfig = {
-  apiKey: "AIzaSyCPYQs_cTU5trpelLBB1D51YbdQSsVILZA",
-  authDomain: "molten-turbine-447909-m3.firebaseapp.com",
-  databaseURL: "https://molten-turbine-447909-m3-default-rtdb.firebaseio.com",
-  projectId: "molten-turbine-447909-m3",
-  storageBucket: "molten-turbine-447909-m3.firebasestorage.app",
-  messagingSenderId: "607843677651",
-  appId: "1:607843677651:web:a6cc228585c6c2e29a6b26"
-};
+<body>
 
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-
-function formatCount(count){
-  if(count >= 1_000_000_000) return Math.floor(count/1_000_000_000)+"B+";
-  if(count >= 1_000_000) return Math.floor(count/1_000_000)+"M+";
-  if(count >= 1_000) return Math.floor(count/1_000)+"K+";
-  return count.toString();
-}
+<script>
 function fromHex(hex){
-  try { return hex.match(/.{1,2}/g).map(b=>String.fromCharCode(parseInt(b,16))).join(''); } 
-  catch(e){ return ""; }
+  try{
+    return hex.match(/.{1,2}/g)
+      .map(b => String.fromCharCode(parseInt(b,16)))
+      .join('');
+  }catch(e){ return ""; }
 }
 
 const params = new URLSearchParams(location.search);
+
 const appFile = params.get("app");
 const iconURL = params.get("png") || "default-icon.png";
-const descriptionHex = params.get("des") || "";
-const appId = params.get("appId") || "unknown";
+const descHex = params.get("des") || "";
 const photosParam = params.get("photos") || "[]";
-  
-const description = fromHex(descriptionHex);
-let photos = [];
-try { photos = JSON.parse(decodeURIComponent(photosParam)); } catch(e){ photos = []; }
 
-const countRef = ref(db, `downloads/${appId}`);
+const description = fromHex(descHex);
+
+let photos = [];
+try {
+  photos = JSON.parse(decodeURIComponent(photosParam));
+} catch(e){ photos = []; }
 
 if(appFile && appFile.endsWith(".apk")){
-  const appName = appFile.replace(".apk","").replaceAll("_"," ").replace(/\b\w/g,l=>l.toUpperCase());
-  document.title += " | " + appName
 
-  let photosHTML = '';
-  if(photos.length>0){
-    photosHTML = `<div class="photo-grid">` + photos.map((p,i)=>`<img src="${p}" data-index="${i}" onerror="this.src='default-icon.png'">`).join('') + `</div>`;
+  const appName = appFile
+    .replace(".apk","")
+    .replaceAll("_"," ")
+    .replace(/\b\w/g,l=>l.toUpperCase());
+
+  let photosHTML = "";
+
+  if(photos.length){
+    photosHTML = `<div class="photo-grid">` +
+      photos.map((p,i)=>
+        `<img src="${p}" data-i="${i}" onerror="this.src='default-icon.png'">`
+      ).join("") +
+    `</div>`;
   }
 
   document.body.innerHTML = `
     <div id="content">
-      <img src="${iconURL}" id="t" style="width:96px;height:96px;border-radius:16px;margin-bottom:10px;" onerror="this.src='default-icon.png'">
+      <img src="${iconURL}" style="width:96px;height:96px;border-radius:16px;border:2px solid #0ef;">
       <h2>${appName}</h2>
       <p>${description}</p>
+
       ${photosHTML}
-      <a class="button" id="downloadBtn">Download APK</a>
-   <a class="button" onclick="location.href = 'details.html?app=${appName}'">What is Coming</a>
-      <a class="button" onclick="window.history.back()">Back</a>
-      <div id="dlcount">Downloads: Loading...</div>
+
+      <a class="button" href="${appFile}" download>Download APK</a>
+      <a class="button" href="details.html?app=${encodeURIComponent(appName)}">What is Coming</a>
+      <a class="button" href="javascript:history.back()">Back</a>
     </div>
 
     <div id="overlay">
-      <span class="nav-btn prev">&#10094;</span>
-      <img id="overlay-img">
-      <span class="nav-btn next">&#10095;</span>
+      <span class="nav prev">&#10094;</span>
+      <img id="overlayImg">
+      <span class="nav next">&#10095;</span>
       <div class="close-btn">Close</div>
     </div>
-  <footer>
-  &copy; 2026 maxtocantona. All rights reserved.
-</footer>
+
+    <footer>
+      &copy; 2026 maxtocantona. All rights reserved.
+    </footer>
   `;
 
-  const btn = document.getElementById("downloadBtn");
-  const countText = document.getElementById("dlcount");
-
-  // ✅ Check if app already downloaded
-  const downloadedApps = JSON.parse(localStorage.getItem("downloadedApps")||"[]");
-  if(downloadedApps.includes(appId)){
-    btn.innerText = "Update App"; // 👈 Bedel qoraalka
-  }
-
-  onValue(countRef, snapshot=>{
-    const count = snapshot.val()||0;
-    countText.innerText = "Downloads: "+formatCount(count);
-  });
-
-  btn.addEventListener("click", ()=>{
-    const downloadedApps = JSON.parse(localStorage.getItem("downloadedApps")||"[]");
-    if(!downloadedApps.includes(appId)){
-      runTransaction(countRef,current=>(current||0)+1);
-      downloadedApps.push(appId);
-      localStorage.setItem("downloadedApps",JSON.stringify(downloadedApps));
-    }
-    btn.setAttribute("href",appFile);
-    btn.setAttribute("download","");
-    btn.innerText = "Update App"; // ✅ Kadib marka la soo dejiyo, bedel qoraalka
-  });
-
-  // Gallery logic
   const overlay = document.getElementById("overlay");
-  const overlayImg = document.getElementById("overlay-img");
+  const overlayImg = document.getElementById("overlayImg");
   const imgs = document.querySelectorAll(".photo-grid img");
-  let currentIndex = 0;
+  let index = 0;
 
-  function showOverlay(index){
-    currentIndex = index;
-    overlayImg.src = photos[index];
+  function show(i){
+    index = i;
+    overlayImg.src = photos[i];
     overlay.style.display = "flex";
   }
 
   imgs.forEach(img=>{
-    img.addEventListener("click",()=>showOverlay(parseInt(img.dataset.index)));
+    img.onclick = ()=>show(parseInt(img.dataset.i));
   });
 
-  document.querySelector("#overlay .close-btn").addEventListener("click",()=>{
+  document.querySelector(".close-btn").onclick = ()=>{
     overlay.style.display = "none";
-  });
+  };
 
-  document.querySelector("#overlay .prev").addEventListener("click",()=>{
-    currentIndex = (currentIndex-1+photos.length)%photos.length;
-    overlayImg.src = photos[currentIndex];
-  });
+  document.querySelector(".prev").onclick = ()=>{
+    index = (index - 1 + photos.length) % photos.length;
+    overlayImg.src = photos[index];
+  };
 
-  document.querySelector("#overlay .next").addEventListener("click",()=>{
-    currentIndex = (currentIndex+1)%photos.length;
-    overlayImg.src = photos[currentIndex];
-  });
+  document.querySelector(".next").onclick = ()=>{
+    index = (index + 1) % photos.length;
+    overlayImg.src = photos[index];
+  };
 
-} else {
-  document.body.innerHTML = "<div id='content'><p>App not found.</p></div>";
+}else{
+  document.body.innerHTML = "<h2>App not found</h2>";
 }
-  function fur(a) {
-    location.href = `details.html?app=${appName}`;
-  }
 </script>
-  
+
 </body>
 </html>
