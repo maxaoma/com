@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#081b29;
+    color:#fff;
+    padding:20px;
+  display: flex;
+  justify-content: center;
+}
+
+#content{
+    max-width:700px;
+    margin:30px auto;
+}
+
+.card{
+    background:#10263a;
+    border:1px solid #0ef;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 0 12px rgba(0,255,213,.35);
+}
+
+.card img{
+    width:90px;
+    height:90px;
+    display:block;
+    margin:0 auto 20px;
+    border-radius:18px;
+    border:2px solid #0ef;
+    box-shadow:0 0 15px #0ef;
+}
+
+.card h2{
+    text-align:center;
+    margin-bottom:15px;
+    color:#0ef;
+}
+
+.card p{
+    line-height:1.7;
+    white-space:pre-wrap;
+}
+
+#backBtn{
+    position:fixed;
+    left:20px;
+    bottom:100px;
+    background:#0ef;
+    color:#081b29;
+    border:none;
+    border-radius:30px;
+    width: 150px;
+  height: 40px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 15px #0ef;
+}
+  .footer{
+    position: fixed;
+    bottom: 20px;
+    text-align:center;
+    color:#fff;
+    width: 100%;
+    border-top: 2px solid #0ef;
+}
+
+.footer a{
+    display:inline-block;
+    margin:6px 10px;
+    color:#0ef;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.footer a:hover{
+    text-decoration:underline;
+}
+
+.footer p{
+    margin-top:18px;
+    color:#0ef;
+    font-size:13px;
+}
+</style>
+
+</head>
+<body>
+
+<div id="content"></div>
+
+<button id="backBtn">← Back</button>
+  <div class="footer">
+    <a href="about.html?mode=about">About</a>
+    <a href="about.html?mode=contact">Contact</a>
+    <a href="about.html?mode=services">Services</a>
+
+    <p>© COPYRIGHT MAXTOCANTONA</p>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const icon = params.get("icon");
+const i = parseInt(params.get("i")) || 0;
+
+// Text only
+const privacy = [
+`This app respects your privacy. No personal information is collected, stored or shared. Contact permission is used only to create and delete contacts on your device.`,
+
+`All data stays on your device. The app never uploads your contacts or phone numbers to any server.`
+];
+
+const content = document.getElementById("content");
+
+if (privacy[i]) {
+
+    content.innerHTML = `
+        <div class="card">
+            <img src="${icon}.webp" alt="Icon">
+            <h2>Privacy Policy</h2>
+            <p>${privacy[i]}</p>
+        </div>
+    `;
+
+} else {
+
+    content.innerHTML = `
+        <div class="card">
+            <h2>No Privacy Policy Found</h2>
+        </div>
+    `;
+
+}
+
+document.getElementById("backBtn").onclick = function () {
+    window.location.href = "index.html";
+};
+</script>
+
+</body>
+</html>
