@@ -188,16 +188,16 @@ let data = await response.json();
   let apps = data.apps;
 const params = new URLSearchParams(window.location.search);
 
-    const i = parseInt(params.get("id"));
-    const app = apps[i];
-    const appPrivacy = app.privacypolicy;
+    
 
 // Text only
 const content = document.getElementById("content");
     
- if(i) {
+ const i = parseInt(params.get("id"));
 
-if (appPrivacy) {
+if (!isNaN(i) && apps[i]) {
+    const app = apps[i];
+    const appPrivacy = app.privacypolicy;
 
     content.innerHTML = `
         <div class="card">
@@ -206,16 +206,12 @@ if (appPrivacy) {
             <p>${appPrivacy}</p>
         </div>
     `;
-} 
-    }
-    else {
-
+} else {
     content.innerHTML = `
         <div class="card">
             <h2>No Privacy Policy Found</h2>
         </div>
-    `;
-
+    `; 
 }
 
     document.addEventListener("click", function(e) {
