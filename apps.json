@@ -6,7 +6,7 @@
       "apk": "Password Manager.apk",
       "description": "This is an application that allows users to create strong and secure passwords,\n save them locally on their device, \n and manage them safely. Users can add, edit, organize, and delete account information with ease, \n making it simple to keep login credentials for multiple accounts in one secure place. The app also allows users to reset or delete saved data whenever needed. In addition, all saved accounts can be exported as a .txt file for backup or transfer purposes. Since all data is stored locally on the device, users have full control over their information without relying on cloud storage.",
       "privacypolicy": "This app respects your privacy. No personal information is collected, stored or shared.  autoFill permission is used only to create suggest strong passwords and create-delete accounts saved on your device. files permission is used only to export accounts via txt files on your device everything is on your device. no permission internet needed!",
-      "photosLength": 7,
+      "photosLength": 8,
       "NotFinished": true 
     }
   ]

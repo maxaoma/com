@@ -188,7 +188,7 @@ let data = await response.json();
   let apps = data.apps;
 const params = new URLSearchParams(window.location.search);
 
-const i = parseInt(params.get("id")) || 0;
+const i = parseInt(params.get("id"));
     const app = apps[i];
     const appPrivacy = app.privacypolicy;
 

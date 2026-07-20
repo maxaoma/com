@@ -305,8 +305,7 @@ let data = await response.json();
     container.innerHTML = "";
     if(ap.length >= 1) {      
 
-    ap.forEach(function (appItem, i) {
-for(let j = 0; j < 13; j++) {      
+    ap.forEach(function (appItem, i) { 
       
       const href = `download.html?id=${i}`;
 
@@ -333,8 +332,7 @@ for(let j = 0; j < 13; j++) {
           window.location.href = href;   
         
         
-      });     
-}  
+      });      
     });
   }    
     else {
