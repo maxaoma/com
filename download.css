@@ -194,6 +194,7 @@ body {
     text-align:center;
     color:#fff;
     height: 6vh;
+      background: rgba(0,0,0,1);
     width: 100%;
     border-top: 1px solid #0ef;
 }

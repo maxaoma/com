@@ -9,7 +9,7 @@
     --text:#f5f7ff;  
     --muted:#a4aed6;  
     --line:rgba(110,231,255,.22);  
-    --neon:#00ffd5;  
+    --neon:#0ef;  
     --neon2:#a855f7;  
     --success:#10b981;  
     --error:#ef4444;  
@@ -61,7 +61,7 @@
   top: 0;
   transition: .5s;
   display: flex;
-  border-right: 2px solid #00ffd5;
+  border-right: 2px solid #0ef;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -74,7 +74,7 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  border-bottom: 2px solid #00ffd5;
+  border-bottom: 2px solid #0ef;
   gap: 15px;
   align-items: center;
 }
@@ -114,14 +114,11 @@
   }  
   .nav a:hover{color:var(--text)}  
   .back{  
-    color:var(--text);  
-    text-decoration:none;  
-    border:1px solid rgba(110,231,255,.25);  
-    background:rgba(255,255,255,.04);  
-    padding:10px 16px;  
-    border-radius:14px;  
-    box-shadow:var(--shadow);  
-    white-space:nowrap;  
+        width: 22%;
+    aspect-ratio: 20/5;
+    background: rgba(55,155,157,.8);
+    border: none;
+    color: #fff;
   }  
   .hero{  
     text-align:center;  
@@ -225,7 +222,7 @@
   border-radius:50%;
   padding:2px;
   z-index: -1;
-  background: conic-gradient(from var(--angle), #00ffd5, #ff0000, #0000ff, #ff0099);
+  background: conic-gradient(from var(--angle), #0ef, #ff0000, #0000ff, #ff0099);
   animation: spinBorder 3s linear infinite;
 }
 .avatar-wrap::after {
@@ -502,8 +499,8 @@
   height: 45px;
   outline: none;
   border-radius: 40px;
-    box-shadow: 0 0 10px #00ffd5;
-  border: 2px solid #00ffd5;
+    box-shadow: 0 0 10px rgba(55,155,157,8);
+  border: 2px solid rgba(55,155,157,.8);
   z-index: 1;
   overflow: hidden;
 }
@@ -514,7 +511,7 @@
   height: 300%;
   top: -100%;
   left: 0;
-  background: linear-gradient(#081b29, #00ffd5, #081b29, #0ef);
+  background: linear-gradient(#081b29, rgba(55,155,157,1), #081b29, rgba(55,155,157,.8));
   z-index: -1;
   transition: .5s;
 }
@@ -567,7 +564,7 @@
     margin-top:8px;  
   }  
   .target {  
-    border: 1px solid #00ffd5;  
+    border: 1px solid #0ef;  
   }  
   .fast-metrics {  
     margin-top: 18px;  
