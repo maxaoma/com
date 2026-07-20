@@ -2,188 +2,239 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Manoriqxen apps</title>
-<link rel="icon" type="image/png" href="maxtocantona.png">
-<link rel="shortcut icon" href="maxtocantona.png" type="image/png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="all apps MaxtoCantona. it here.">
+  <link rel="icon" type="image/webp" href="icon.webp">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - MAXOMA</title>
+  <meta name="description" content="Explore and download top apps, utility tools, and exciting games created by MAXOMA.">
+<meta name="keywords" content="MAXOMA, Apps, Utility Tools, Android Apps, Games">
+<meta name="author" content="maxtocantona">
+
+<meta property="og:title" content="Welcome To MAXOMA Platform">
+<meta property="og:description" content="Discover powerful apps, utility tools, and modern games.">
+<meta property="og:image" content="icon.webp"> <meta property="og:type" content="website">
+
+  
 
 <style>
-  body {
-    font-family: sans-serif;
-    background: #081b29;
-    padding: 20px;
-    color: #fff;
-    margin: 0;
-    padding-bottom: 90px;
-  }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-  h2 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
-  .app-card {
-    border: 2px solid #fff;
-    background: transparent;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 20px;
-    transition: transform 0.2s, border 0.3s;
-  }
-
-  .app-card.focused {
-    box-shadow: 0 0 20px 2px #0ef;
-    border-color: #0ef;
-  }
-
-  .app-content {
+body{
+    background:  
+      radial-gradient(circle at top left, rgba(110,231,255,.14), transparent 24%),  
+      radial-gradient(circle at top right, rgba(168,85,247,.12), transparent 28%),  
+      linear-gradient(180deg, #040711 0%, #050816 100%);
+    color:#fff;
+    min-height: 100vh;
     display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-  }
+    justify-content: center;
+}
 
-  .app-card img {
-    width: 64px;
-    height: 64px;
-    border-radius: 12px;
-    margin-right: 15px;
-    object-fit: cover;
-    border: 3px solid #0ef;
-    box-shadow: 0 0 20px 2px #0ef;
-  }
+#content{
+    max-width:700px;
+    margin:60px auto 100px;
+    padding: 0 20px;
+}
 
-  .app-card h3 {
-    margin: 0;
-    font-size: 18px;
-  }
+.card{
+    background: transparent;
+    padding: 20px;   
+}
 
-  footer.site-footer {
-    position: fixed;
+/* --- Multi-color Moving Neon Text & Underline Animation --- */
+.card h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    padding-bottom: 12px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+
+    /* Neon Gradient for Text */
+    background: linear-gradient(115deg, #00ffd5, #00ff66, #ff0099, #ff0000, #0000ff, #00ffd5);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: neonFlow 4s linear infinite;
+}
+
+/* Multi-color Moving Neon Underline */
+.card h1::after {
+    content: '';
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #081b29;
-    color: #fff;
-    text-align: center;
-    padding: 12px 10px;
-    font-size: 14px;
-    border-top: 1px solid #0ef;
-    z-index: 9999;
-  }
-
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-    flex-wrap: wrap;
-    margin-top: 6px;
-  }
-
-  .footer-links a {
-    color: #0ef;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
-</style>
-</head>
-
-<body>
-  <h2>All apps</h2>
-  <div id="app-list"></div>
-
-  <footer class="site-footer">
-    <div>&copy; 2026 maxtocantona. All rights reserved.</div>
-    <div class="footer-links">
-      <a href="about.html?mode=about">About</a>
-      <a href="about.html?mode=contact">Contact</a>
-      <a href="about.html?mode=services">Services</a>
-    </div>
-  </footer>
-
-  <script>
-    function toHex(str) {
-  return Array.from(str, ch =>
-    ch.codePointAt(0).toString(16).toUpperCase()
-  ).join(" ");
+    height: .10vh;
+    border-radius: 2px;
+    background: linear-gradient(115deg, #00ffd5, #00ff66, #ff0099, #ff0000, #0000ff, #00ffd5);
+    background-size: 300% 300%;
+    box-shadow: 0 0 10px rgba(0, 255, 213, 0.7), 0 0 20px rgba(255, 0, 153, 0.5);
+    animation: neonFlow 4s linear infinite;
 }
 
-    const apps = [
-      {
-        id: 0,
-        name: "Contact Creater",
-        apk: "Contact Creater.apk",
-        description: `
+/* Keyframes for Left-to-Right Angle Movement */
+@keyframes neonFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 300% 50%;
+    }
+}
 
-Contact Generator is a simple and easy-to-use app that helps you create multiple contacts on your Android device in seconds.
+.card p{
+    line-height: 1.8;
+    color: #e0e0e0;
+    font-size: 16px;
+    text-align: justify;
+}
 
-Features:
+.footer{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    color: #fff;
+    height: 6vh;
+    width: 100%;
+    border-top: 1px solid #0ef;
+    background: #040711;
+}
 
-- Generate multiple contacts at once
-- Choose any country code
-- Customize the phone number prefix
-- Fast contact creation
-- Delete generated contacts with one tap
-- Simple and clean interface
+.footer a{
+    display: inline-block;
+    margin: 1% 2%;
+    color: #0ef;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-All contacts are created locally on your device. The app does not collect, upload, or share your personal data.
-Unlimted free and more`,
-        photos: ["contact1.webp", "contact2.webp", "contact3.webp"]
-      }
-    ];
+.footer a:hover{
+    text-decoration: underline;
+}
 
-    const container = document.getElementById("app-list");
-    const urlParams = new URLSearchParams(window.location.search);
-    let focusedAppId = urlParams.get('focus') || null;
+.footer p{
+    margin-top: 1%;
+    color: #fff;
+    font-size: 13px;
+}
 
-    apps.forEach(function (appItem) {
-      const hexDes = toHex(appItem.description);
-      const href = "download.html?app=" + encodeURIComponent(appItem.apk) +
-                   "&png=" + encodeURIComponent(appItem.id) + ".webp" +
-                   "&des=" + hexDes +
-                   "&appId=" + appItem.id +
-                   "&photos=" + encodeURIComponent(JSON.stringify(appItem.photos));
+.show-page {
+    position: fixed;
+    width: 50px;
+    height: 25px;
+    inset: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+}
 
-      const div = document.createElement("div");
-      div.className = "app-card";
-      div.innerHTML = `
-        <a href="#" class="app-content">
-          <img src="${appItem.id}.webp" alt="${appItem.name}" onerror="this.src='default-icon.png'">
-          <div>
-            <h3>${appItem.name}</h3>
-          </div>
-        </a>
-      `;
-      container.appendChild(div);
+.show-page span, .left-page span{
+    font-size: 35px;
+}
 
-      if (focusedAppId && focusedAppId === appItem.id) {
-        div.classList.add("focused");
-        div.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
+.left-page {
+    position: fixed;
+    height: 100%;
+    width: 300px;
+    gap: 1%;
+    background:  
+        radial-gradient(circle at top left, rgba(110,231,255,.14), transparent 24%),  
+        radial-gradient(circle at top right, rgba(168,85,247,.12), transparent 28%),  
+        linear-gradient(180deg, #040711 0%, #050816 100%);
+    left: -304px;
+    z-index: 99;
+    top: 0;
+    transition: .5s;
+    display: flex;
+    border-right: 2px solid #0ef;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
 
-      div.querySelector(".app-content").addEventListener("click", function (e) {
-        e.preventDefault();
+.show-vis {
+    left: 0;
+} 
 
-        if (focusedAppId === appItem.id) {
-          window.location.href = href;
-        } else {
-          const prev = document.querySelector(".app-card.focused");
-          if (prev) prev.classList.remove("focused");
+.itemp {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 2px solid #0ef;
+    padding-bottom: 10px;
+    gap: 15px;
+    align-items: center;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+  .btn_apps {
+    position: absolute;   
+    width: 30%;
+    margin: 1vh 0;
+    left: 50%;
+    transform: translateX(-50%);
+    aspect-ratio: 20/5;
+    background: rgba(55,155,157,.8);
+    border: none;
+    color: #fff;
+  }
+  .btn_apps:active {
+    opacity: .5;
+  }
+</style>
 
-          div.classList.add("focused");
-          focusedAppId = appItem.id;
-          div.scrollIntoView({ behavior: "smooth", block: "center" });
+</head>
+<body>
 
-          const newUrl = window.location.pathname + '?focus=' + encodeURIComponent(appItem.id);
-          history.replaceState(null, '', newUrl);
+<div class="show-page">
+    <span class="material-symbols-outlined">menu</span>
+</div>
+
+<div class="left-page">
+    <div class="itemp" onclick="location.href = 'apps.html'">
+        <span class="material-symbols-outlined">apps</span>
+        <p>apps</p>
+    </div>
+</div>
+
+<div id="content">
+    <div class="card">
+        <h1>Welcome To MAXOMA Platform</h1>
+        <p>Welcome to our official platform! Here you will find all the latest application releases, powerful utility tools, and exciting modern games carefully designed for you. Our goal is to provide high-quality software solutions that enhance your digital experience. Explore our growing library of apps and download lightweight, secure applications tailored to streamline your daily tasks. Thank you for visiting!</p>
+    </div>
+  <button class="btn_apps" onclick="location.href = 'apps.html'">Apps</button>
+</div>
+  
+
+<div class="footer">
+    <a href="about.html?mode=about">About</a>
+    <a href="about.html?mode=contact">Contact</a>
+    <a href="about.html?mode=services">Services</a>
+    <p>© 2026 maxaoma all rights reserved</p>
+</div>
+
+<script>
+    document.addEventListener("click", function(e) {
+        const page = document.querySelector(".left-page");
+        if (e.target.closest(".show-page")) {
+            page.classList.add("show-vis");
+        } else if (!e.target.closest(".left-page")) {
+            page.classList.remove("show-vis");
         }
-      });
     });
-  </script>
+</script>
+
 </body>
 </html>
