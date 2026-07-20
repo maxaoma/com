@@ -188,13 +188,14 @@ let data = await response.json();
   let apps = data.apps;
 const params = new URLSearchParams(window.location.search);
 
-const i = parseInt(params.get("id"));
+    const i = parseInt(params.get("id"));
     const app = apps[i];
     const appPrivacy = app.privacypolicy;
 
 // Text only
-
 const content = document.getElementById("content");
+    
+ if(i) {
 
 if (appPrivacy) {
 
@@ -205,8 +206,9 @@ if (appPrivacy) {
             <p>${appPrivacy}</p>
         </div>
     `;
-
-} else {
+} 
+    }
+    else {
 
     content.innerHTML = `
         <div class="card">
