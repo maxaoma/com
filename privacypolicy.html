@@ -195,7 +195,7 @@ const content = document.getElementById("content");
     
  const i = parseInt(params.get("id"));
 
-if (i && !isNaN(i) && apps[i]) {
+if (Number.isInteger(i) && apps[i]) {
     const app = apps[i];
     const appPrivacy = app.privacypolicy;
 
