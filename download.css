@@ -64,7 +64,7 @@ body {
   gap: 1%;
 }
 .name h2 {
-  font-size: clamp(16px, 2vw, 30px);
+  font-size: clamp(12px, 2vw, 25px);
 }
 .name p {
   color: #0ef;
