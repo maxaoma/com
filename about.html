@@ -49,7 +49,7 @@ Apps
     </div>    
 
     <section class="hero">  
-      <h1>About <span class="highlight">MAXAOMA</span></h1>  
+      <h1 class="we">We are <span class="highlight">MAXAOMA</span></h1>  
       <p>  
         A clean and modern web profile for <span class="highlight">Maxaoma Apps</span>.  
         I enjoy creating beautiful websites, download apps, and simple digital experiences that feel fast, professional, and easy to use.
@@ -59,10 +59,10 @@ Apps
     <section class="grid">  
       <div class="card" id="about">  
         <h2 class="section-title">Info</h2>  
-        <div class="tag">Software Engineer • Frontend Developer • UI Designer</div>  
+        <div class="tag">Software Engineer</div>  
 
         <p class="text">  
-          I am <strong>Maxtocantona</strong>, a software engineer and frontend developer focused on building modern websites, apps and mobile games with a clean, professional look.  
+          I am <strong>Man</strong>, a software engineer focused on building modern websites, apps and mobile games with a clean, professional look.  
           This page represents my work style for <strong>Maxaoma Apps</strong> — simple, responsive, fast, and designed for real users.  
           I enjoy creating download apps, landing pages, and web interfaces that are easy to navigate and visually strong.  
           My work focuses on performance, usability, mobile-friendly layouts, and elegant UI design.  
@@ -80,13 +80,13 @@ Apps
         </div>          
 
         <div class="links">         
-          <button class="linkbtn" onclick="window.open('https://facebook.com/@maxtocantona','_blank')">
+          <button class="linkbtn" onclick="window.open('https://facebook.com/@maxtocantons','_blank')">
             <i class="fab fa-facebook-f"></i> Facebook
           </button>  
           <button class="linkbtn" onclick="window.open('https://youtube.com/@maxtocantonas','_blank')">
             <i class="fab fa-youtube"></i> YouTube
           </button>  
-          <button class="linkbtn" onclick="window.open('https://tiktok.com/@maxtocantonaaa','_blank')">
+          <button class="linkbtn" onclick="window.open('https://tiktok.com/@maxtocantonas','_blank')">
             <i class="fab fa-tiktok"></i> TikTok
           </button>           
         </div>  
@@ -165,7 +165,8 @@ Apps
           </div>  
         </div>  
 
-        <div class="contact-grid">  
+        <div class="contact-grid">
+              
           <div class="form-group">
             <label for="subject">Subject *</label>
             <input type="text" id="subject" placeholder="Message subject" required>
@@ -180,6 +181,13 @@ Apps
           <label for="message">Message *</label>
           <textarea id="message" rows="5" placeholder="Your message..." required></textarea>
         </div>  
+         <div class="captcha">
+            Captcha <p id="cpat">345678</p>
+          </div>    
+        <div class="form-group">
+            <label for="cpai">Captcha</label>
+            <input type="text" id="cpai" placeholder="Captcha">
+          </div>  
 
         <button type="submit" class="submit-btn" id="submitBtn">
           <i class="fas fa-paper-plane"></i> Send Message 
@@ -237,6 +245,11 @@ Apps
       showAlert("error", "Please enter a valid email address.");
       return;
     }
+    if(!checkc()) {
+      showAlert("error", "Invalid captcha.");
+      callc();
+      return;
+    }
 
     submitBtn.disabled = true;
     loadingSpinner.style.display = "inline-block";
@@ -267,6 +280,7 @@ Apps
       if (response.ok) {
         showAlert("success", "Message sent successfully!");
         form.reset();
+        callc();
       } else {
         showAlert("error", "Error sending message. Please try again.");
       }
@@ -337,7 +351,7 @@ Apps
   });
 }, observerOptions);
 
-    document.querySelectorAll('.card, p, h2, input, button, span').forEach(card => {
+    document.querySelectorAll('.card, p, h2, input, button, span, label, a').forEach(card => {
       card.style.opacity = '0';
       card.style.transform = 'translateY(40px)';
       card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -395,5 +409,28 @@ document.querySelectorAll(".yearNeed").forEach(e => {
   }
 });
 </script>
+  <script>
+  let cpat = document.getElementById("cpat");
+  let cpai = document.getElementById("cpai");
+ 
+  let charc = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  function generateCap() {
+    let score = "";
+    for(let i = 0; i < 6; i++) {
+      score+= charc[Math.floor(Math.random() * charc.length)];
+    }
+      return score;
+  }
+ function callc()  {
+  cpat.innerText = generateCap();
+   cpai.value = "";
+ }
+  function checkc() {
+    return cpat.innerText === cpai.value.trim();
+  }
+  callc()
+      
+  
+  </script>
 </body>
 </html>
