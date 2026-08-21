@@ -27,124 +27,52 @@ body{
 }
 
 #content{
-    max-width:700px;
-    margin:30px auto;
+    width: 80vw;
+    margin:3vh;
 }
 
 .card{
     background:transparent;
-    padding:20px;   
+    padding:2vh;   
 }
 
 .card img{
-    width:90px;
-    height:90px;
+    width:9vh;
+    height:9vh;
     display:block;
-    margin:0 auto 20px;
-    border-radius:18px;
-    border:2px solid #0ef;
-    box-shadow:0 0 15px #0ef;
+    margin:0 auto 2vh;
+    border-radius:1.8vh;
+    border:.20vh solid #0ef;
+    box-shadow:0 0 1.5vh #0ef;
 }
 
 .card h2{
     text-align:center;
-    margin-bottom:15px;
+    margin-bottom:1.5vh;
     color:#0ef;
+    font-size: 2vh;
 }
 
 .card p{
     line-height:1.7;
     white-space:pre-wrap;
+    font-size: 1vh;
 }
 
 #backBtn{
     position:fixed;
     left:2vw;
     bottom:10vh;
-      width: 26vw;
+      height: 3vh;
     aspect-ratio: 22/5;
     background: rgba(55,155,157,.8);
     border: none;
     color: #fff;
+    font-size: 1vh;
 }
     #backBtn:active {
         opacity: .5;
     }
-  .footer{
-    position: fixed;
-    bottom: 0;
-    text-align:center;
-      background: rgba(0,0,0,1);
-    color:#fff;
-      height: 6vh;
-    width: 100%;
-    border-top: 1px solid #0ef;
-}
-
-.footer a{
-    display:inline-block;
-    margin:1% 2%;
-    color:#0ef;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.footer a:hover{
-    text-decoration:underline;
-}
-
-.footer p{
-    margin-top:1%;
-    color:#fff;
-    font-size:13px;
-}
-     .show-page {
-  position: fixed;
-  width: 50px;
-  height: 25px;
-  inset: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-.show-page span, .left-page span{
-  font-size: 35px;
-  
-}
-.left-page {
-  position: fixed;
-  height: 100%;
-  width: 300px;
-  gap: 1%;
-  background:  
-      radial-gradient(circle at top left, rgba(110,231,255,.14), transparent 24%),  
-      radial-gradient(circle at top right, rgba(168,85,247,.12), transparent 28%),  
-      linear-gradient(180deg, #040711 0%, #050816 100%);
-  left: -304px;
-  z-index: 99;
-  top: 0;
-  transition: .5s;
-  display: flex;
-  border-right: 2px solid #0ef;
-  flex-direction: column;
-  align-items: fle-start;
-  justify-content: flex-start;
-}
-.show-vis {
-  left: 0;
-} 
-.itemp {
-  margin-top: 5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  border-bottom: 2px solid #0ef;
-  gap: 15px;
-  align-items: center;
-  text-transform: uppercase;
-}
 </style>
 
 </head>
@@ -152,36 +80,6 @@ body{
 
 <div id="content"></div>
     <button id="backBtn">Back</button>
-  <div class="footer">
-    <a href="about.html?mode=about">About</a>
-    <a href="about.html?mode=contact">Contact</a>
-    <a href="about.html?mode=services">Services</a>
-
-    <p>© 2026 maxaoma all rights reserved</p>
-</div>
-    
-     <div class="show-page">
-    <span class="material-symbols-outlined">
-menu
-</span>
-  </div>
-<div class="left-page">
-    <div class="itemp" onclick="location.href = 'index.html'">
-      <span class="material-symbols-outlined">
-home
-</span>
-      <p>home</p>
-    </div>
-    
-     <div class="itemp" onclick="location.href = 'apps.html'">
-      <span class="material-symbols-outlined">
-apps
-</span>
-       
-      <p>apps</p>
-    </div>
-    
-  </div>
 <script type="module">
     let response = await fetch("apps.json");
 let data = await response.json();
@@ -226,6 +124,8 @@ document.getElementById("backBtn").addEventListener("click", () => {
     window.history.back();
 });
 </script>
+    <script src="leftPage.js"></script>
+    <script src="footer.js"></script>
 
 </body>
 </html>
