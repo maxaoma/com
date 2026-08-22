@@ -34,16 +34,20 @@ body {
   align-items: center;
   color: #fff;
 }
-.back_arrow {
-  position: fixed;
-  inset: 2vh;
+#backBtn{
+    position:fixed;
+    left:2vw;
+    bottom:10vh;
+      height: 3vh;
+    aspect-ratio: 22/5;
+    background: rgba(55,155,157,.8);
+    border: none;
+    color: #fff;
+    font-size: 1vh;
 }
-.back_arrow:active {
-  opacity: .5;
-}
-.back_arrow span {
-  font-size: 2vh;
-}
+    #backBtn:active {
+        opacity: .5;
+    }
 
 
 

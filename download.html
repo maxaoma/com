@@ -11,11 +11,7 @@
 </head>
 
 <body>
-   <div class="back_arrow" onclick="window.history.back()">
-    <span class="material-symbols-outlined">
-arrow_back
-</span>
-  </div>
+    <button id="backBtn">Back</button>
    <div class="popup">
     <div class="background"></div>
     <button class="btn-hide">×</button>
@@ -179,6 +175,10 @@ document.querySelector(".despopup a").href = `privacypolicy.html?id=${appId}`;
         page.classList.remove("show-vis");
     }
   }); 
+
+document.getElementById("backBtn").addEventListener("click", () => {
+    window.history.back();
+});
 
  
 </script>
