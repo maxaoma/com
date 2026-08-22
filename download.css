@@ -34,6 +34,16 @@ body {
   align-items: center;
   color: #fff;
 }
+.back_arrow {
+  position: fixed;
+  inset: 2vh;
+}
+.back_arrow:active {
+  opacity: .5;
+}
+.back_arrow span {
+  font-size: 2vh;
+}
 
 
 
