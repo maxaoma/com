@@ -23,20 +23,20 @@ document.body.insertAdjacentHTML("beforeend", `
 
 const backBtn = document.getElementById("backBtn");
 
-// Haddii history jiro → show
-if (window.history.length > 1) {
-    backBtn.style.display = "block";
+function checkHistory() {
+    const isHome =
+        window.location.href === "https://maxaoma.github.io/com/" ||
+        window.location.href === "https://maxaoma.github.io/com";
+
+    backBtn.style.display =
+        window.history.length > 1 && !isHome
+            ? "block"
+            : "none";
 }
 
-// Back
 backBtn.addEventListener("click", () => {
     window.history.back();
 });
-
-function checkHistory() {
-    backBtn.style.display =
-        window.history.length > 1 ? "block" : "none";
-}
 
 checkHistory();
 
