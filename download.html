@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <button id="backBtn">Back</button>
+ 
    <div class="popup">
     <div class="background"></div>
     <button class="btn-hide">×</button>
@@ -22,7 +22,8 @@
      <div class="popup_detail">
        <h2>About this app</h2>
      <div class="despopup">
-  <p id="about">No coming future</p> <a href="#">Privacy policy</a>
+  <p id="about">No coming future</p> <a id="aPrivacy"href="#">Privacy policy</a>
+       <a id="aHelp"href="#">Help</a>
     </div>
  
     
@@ -64,7 +65,7 @@ arrow_forward
 
   const params = new URLSearchParams(location.search);
   const appId = parseInt(params.get("id")) || 0;
-  const app = apps[appId];
+  const app = apps.find(a => a.id === appId);
 
   if (app) {
     const appFile = app.apk;
@@ -79,7 +80,8 @@ arrow_forward
     document.getElementById("about").innerText = description;
     document.getElementById("short-desp").innerText = description.split(" ").slice(0,9).join(" ");
     document.getElementById("coming").innerText = appNew || "Current version is a first version!";
-document.querySelector(".despopup a").href = `privacypolicy.html?id=${appId}`;
+document.getElementById("aPrivacy").href = `privacypolicy.html?id=${appId}`;
+    document.getElementById("aHelp").href = `help.html?id=${appId}`;
 
 
     // U dhis Photo Grid-ka si sax ah
@@ -176,9 +178,6 @@ document.querySelector(".despopup a").href = `privacypolicy.html?id=${appId}`;
     }
   }); 
 
-document.getElementById("backBtn").addEventListener("click", () => {
-    window.history.back();
-});
 
  
 </script>

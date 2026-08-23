@@ -1,4 +1,4 @@
-document.body.innerHTML += `
+document.body.insertAdjacentHTML("beforeend", `
 <div class="footer">
     <div class="footer-links">
         <a href="about.html?mode=about">About</a>
@@ -58,4 +58,4 @@ document.body.innerHTML += `
     letter-spacing: 0.05vh;
 }
 </style>
-`;
+`);

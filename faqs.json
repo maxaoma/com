@@ -1,0 +1,25 @@
+{
+  "faqs": [
+    {
+      "Id": 0,
+      "fands": [
+        {
+          "question": "Can I Save password on this app?",
+          "answer": "Yes, you can save passwords at any time for your device."
+        },
+        {
+          "question": "What if autofill is not working on websites?",
+          "answer": "Go to your default browser > Settings > Autofill service, and select 'Autofill using another service' or enable the third-party autofill option."
+        },
+        {
+          "question": "Will I lose my data?",
+          "answer": "Yes, all local data will be deleted permanently when you remove the app."
+        },
+        {
+          "question": "Can I re-download it later?",
+          "answer": "Yes, you can reinstall it anytime from the store."
+        }
+      ]
+    }
+  ]
+}

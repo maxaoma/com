@@ -1,25 +1,20 @@
-document.body.innerHTML+= ` 
+document.body.insertAdjacentHTML("beforeend", `
 <div class="show-page">
     <span class="material-symbols-outlined">menu</span>
 </div>
 
-  <div class="left-page">
-    <div class="itemp" onclick="location.href = 'index.html'">
-      <span class="material-symbols-outlined">
-home
-</span>
+<div class="left-page">
+    <div class="itemp" id="navHome">
+      <span class="material-symbols-outlined">home</span>
       <p>home</p>
     </div>
     
-     <div class="itemp" onclick="location.href = 'apps.html'">
-      <span class="material-symbols-outlined">
-apps
-</span>
-       
+    <div class="itemp" id="navApps">
+      <span class="material-symbols-outlined">apps</span>
       <p>apps</p>
     </div>
-    
-  </div>
+</div>
+
 <style>
 .show-page {
     position: fixed;
@@ -31,9 +26,10 @@ apps
     align-items: center;
     cursor: pointer;
     z-index: 10;
+    color: #fff;
 }
 
-.show-page span, .left-page span{
+.show-page span, .left-page span {
     font-size: 2vh;
 }
 
@@ -73,27 +69,36 @@ apps
     align-items: center;
     text-transform: uppercase;
     cursor: pointer;
+    color: #fff;
 }
+
 .itemp p {
-font-size: 1vh;
+    font-size: 1vh;
 }
 </style>
-`;
+`);
 
-
-
+// Sidebar Open & Close Listener
 document.addEventListener("click", function(e) {
-        const page = document.querySelector(".left-page");
-        if (e.target.closest(".show-page")) {
-            page.classList.add("show-vis");
-        } else if (!e.target.closest(".left-page")) {
-            page.classList.remove("show-vis");
-        }
-    });
+    const page = document.querySelector(".left-page");
+    if (e.target.closest(".show-page")) {
+        page.classList.add("show-vis");
+    } else if (!e.target.closest(".left-page")) {
+        page.classList.remove("show-vis");
+    }
+});
 
+// Navigation Event Listeners
+document.getElementById("navHome").addEventListener("click", () => {
+    window.location.href = "index.html";
+});
+
+document.getElementById("navApps").addEventListener("click", () => {
+    window.location.href = "apps.html";
+});
+
+// Load Google Material Icons Font
 const link = document.createElement("link");
-
 link.rel = "stylesheet";
 link.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0";
-
 document.head.appendChild(link);

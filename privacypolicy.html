@@ -59,27 +59,12 @@ body{
     font-size: 1vh;
 }
 
-#backBtn{
-    position:fixed;
-    left:2vw;
-    bottom:10vh;
-      height: 3vh;
-    aspect-ratio: 22/5;
-    background: rgba(55,155,157,.8);
-    border: none;
-    color: #fff;
-    font-size: 1vh;
-}
-    #backBtn:active {
-        opacity: .5;
-    }
 </style>
 
 </head>
 <body>
 
-<div id="content"></div>
-    <button id="backBtn">Back</button>
+<div id="content"></div>  
 <script type="module">
     let response = await fetch("apps.json");
 let data = await response.json();
@@ -120,12 +105,10 @@ if (Number.isInteger(i) && apps[i]) {
         page.classList.remove("show-vis");
     }
   }); 
-document.getElementById("backBtn").addEventListener("click", () => {
-    window.history.back();
-});
 </script>
     <script src="leftPage.js"></script>
     <script src="footer.js"></script>
+    <script src="back.js"></script>
 
 </body>
 </html>

@@ -34,21 +34,6 @@ body {
   align-items: center;
   color: #fff;
 }
-#backBtn{
-    position:fixed;
-    left:2vw;
-    bottom:10vh;
-      height: 3vh;
-    aspect-ratio: 22/5;
-    background: rgba(55,155,157,.8);
-    border: none;
-    color: #fff;
-    font-size: 1vh;
-}
-    #backBtn:active {
-        opacity: .5;
-    }
-
 
 
 
