@@ -88,7 +88,7 @@
     }
 
     .faq-item.active_faq .faq-answer {
-      max-height: 5vh;
+      max-height: 20vh;
     }
 
     .error-msg {
@@ -140,7 +140,7 @@
     const appLogo = document.getElementById("appLogo");
       try {      
         // 2. Fetch data ka localhost:8080/faqs.json
-        const response = await fetch('apps.json');
+        const response = await fetch('jsons/apps.json');
         if (!response.ok) throw new Error('Network response was not ok');
         
         const data = await response.json();
@@ -176,7 +176,7 @@
 
       try {
         // 2. Fetch data ka localhost:8080/faqs.json
-        const response = await fetch('faqs.json');
+        const response = await fetch('jsons/faqs.json');
         if (!response.ok) throw new Error('Network response was not ok');
         
         const data = await response.json();
