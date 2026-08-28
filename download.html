@@ -16,7 +16,7 @@
     <div class="background"></div>
     <button class="btn-hide">×</button>
      <div class="line_up">
-       <img src="0.webp"/>
+       <img id="popupImage" src=""/>
     <h1 id="name">app not found</h1>  
      </div>
      <div class="popup_detail">
@@ -82,6 +82,7 @@ arrow_forward
     document.getElementById("coming").innerText = appNew || "Current version is a first version!";
 document.getElementById("aPrivacy").href = `privacypolicy.html?id=${appId}`;
     document.getElementById("aHelp").href = `help.html?id=${appId}`;
+    document.getElementById("popupImage").src = `images/${appId}.webp`;
 
 
     // U dhis Photo Grid-ka si sax ah
