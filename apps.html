@@ -265,7 +265,7 @@ let data = await response.json();
       const div = document.createElement("div");
       div.className = "app-card";
       div.innerHTML = `        
-          <img src="${appItem.id}.webp" alt="${appItem.name}" onerror="this.src='default-icon.png'">
+          <img src="images/${appItem.id}.webp" alt="${appItem.name}" onerror="this.src='default-icon.png'">
           <div class="texts">
             <div class="h3">${appItem.name}</div>
         

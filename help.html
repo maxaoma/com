@@ -146,14 +146,14 @@
         const data = await response.json();
         const app = data.apps.find(a => a.id === paramId);
         if(app) {
-        const appLogoLoaded = paramId + ".webp";
+        const appLogoLoaded = "images/" + paramId + ".webp";
         const appNameLoaded = app.name;
         appName.innerText = appNameLoaded;
         appLogo.src = appLogoLoaded;
       }
         else {
           appName.innerText = "app";
-        appLogo.src = "iconapp.webp";
+        appLogo.src = "images/iconapp.webp";
         }
           
       }

@@ -89,7 +89,7 @@ document.getElementById("aPrivacy").href = `privacypolicy.html?id=${appId}`;
     if (photosLength > 0) {
       photosHTML += '<div class="photo-grid">';
       for (let i = 0; i < photosLength; i++) {
-        photosHTML += `<img src="${appId}${i}.webp" data-i="${i}" onerror="this.src='default-icon.png'">`;
+        photosHTML += `<img src="images/${appId}${i}.webp" data-i="${i}" onerror="this.src='default-icon.png'">`;
       }
       photosHTML += '</div>';
     }
@@ -99,7 +99,7 @@ document.getElementById("aPrivacy").href = `privacypolicy.html?id=${appId}`;
     document.body.insertAdjacentHTML('beforeend', `
    
       <div id="content">
-        <img src="${iconURL}">
+        <img src="images/${iconURL}">
     <div class="name">
         <h2>${appName}</h2>
     <p class="watermark">MAXAOMA</p>
@@ -129,7 +129,7 @@ document.getElementById("aPrivacy").href = `privacypolicy.html?id=${appId}`;
 
     function show(i) {
       index = i;
-      overlayImg.src = `${appId}${i}.webp`;
+      overlayImg.src = `images/${appId}${i}.webp`;
       overlay.style.display = "flex";
     }
 
