@@ -73,6 +73,7 @@ arrow_forward
     const description = app.description;
     const photosLength = parseInt(app.photosLength) || 0;
     const appName = app.name;
+    const versionName = app.version;
     const appNew = app.new;
     
       // Si badbaado leh u qor magaca iyo waxa cusub maadaama app-ku jiro
@@ -106,6 +107,7 @@ document.getElementById("aPrivacy").href = `privacypolicy.html?id=${appId}`;
     <p class="watermark">MAXAOMA</p>
     <div class=status>
     Status:<p class="stat" style="color: ${isAvailable.color}">${isAvailable.text}</p></div>
+    <div class="version">Version: <p>${versionName}</p></div>
     </div>
         
         <button ${app.NotFinished ? "disabled" : ""} onclick="location.href='${appFile}'">
