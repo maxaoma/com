@@ -5,7 +5,7 @@ document.body.insertAdjacentHTML("beforeend", `
         <a href="about.html?mode=contact">Contact</a>
         <a href="about.html?mode=services">Services</a>
     </div>
-    <p>© 2026 one-manager all rights reserved</p>
+    <p>© 2026 one manager all rights reserved</p>
 </div>
 
 <style>
