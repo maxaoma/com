@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>MAXAOMA | 2026</title>
+  <title>ONE MANAGER | 2026</title>
   <link rel="icon" type="image/png" href="icon.webp">
 
   <link rel="stylesheet" href="about.css"/>
@@ -13,31 +13,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>  
-  <div class="show-page">
-    <span class="material-symbols-outlined">
-menu
-</span>
-  </div>
-  <div class="left-page">
-    <div class="itemp" onclick="location.href = 'index.html'">
-      <span class="material-symbols-outlined">
-Home
-</span>
-      <p>Home</p>
-    </div>
-    
-     <div class="itemp" onclick="location.href = 'apps.html'">
-      <span class="material-symbols-outlined">
-Apps
-</span>
-      <p>Apps</p>
-    </div>
-    
-  </div>
+<body>    
+ 
   <div class="container">  
     <div class="topbar">  
-      <div class="logo">MAXAOMA</div>  
+      <div class="logo">ONE MANAGER</div>  
       <div class="nav">  
         <a onclick="scr('about')">About</a>  
         <a onclick="scr('services')">Services</a>  
@@ -49,9 +29,9 @@ Apps
     </div>    
 
     <section class="hero">  
-      <h1 class="we">We are <span class="highlight">MAXAOMA</span></h1>  
+      <h1 class="we">We are <span class="highlight">ONE MANAGER</span></h1>  
       <p>  
-        A clean and modern web profile for <span class="highlight">Maxaoma Apps</span>.  
+        A clean and modern web profile for <span class="highlight">ONE MANAGER Apps</span>.  
         I enjoy creating beautiful websites, download apps, and simple digital experiences that feel fast, professional, and easy to use.
       </p>  
     </section>    
@@ -63,7 +43,7 @@ Apps
 
         <p class="text">  
           I am <strong>Man</strong>, a software engineer focused on building modern websites, apps and mobile games with a clean, professional look.  
-          This page represents my work style for <strong>Maxaoma Apps</strong> — simple, responsive, fast, and designed for real users.  
+          This page represents my work style for <strong>ONE MANAGER Apps</strong> — simple, responsive, fast, and designed for real users.  
           I enjoy creating download apps, landing pages, and web interfaces that are easy to navigate and visually strong.  
           My work focuses on performance, usability, mobile-friendly layouts, and elegant UI design.  
         </p>  
@@ -201,6 +181,8 @@ Apps
       <div class="line yearNeed">Maxaoma Apps • Software Engineer • Frontend Developer • UI Designer</div>  
     </footer>  
   </div>
+</body>
+</html>
 
  <script>
   const form = document.getElementById("contactForm");
@@ -351,7 +333,7 @@ Apps
   });
 }, observerOptions);
 
-    document.querySelectorAll('.card, p, h2, input, button, span, label, a').forEach(card => {
+    document.querySelectorAll('.card, h2, label, a').forEach(card => {
       card.style.opacity = '0';
       card.style.transform = 'translateY(40px)';
       card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -395,7 +377,7 @@ Apps
 
 
 <script>
-  document.title = `MAXAOMA | ${new Date().getFullYear()}`;
+  document.title = `ONE MANAGER | ${new Date().getFullYear()}`;
 document.querySelectorAll(".yearNeed").forEach(e => {
   const dateNow = new Date().getFullYear() + " ";
   const texts = e.innerText;
@@ -432,5 +414,4 @@ document.querySelectorAll(".yearNeed").forEach(e => {
       
   
   </script>
-</body>
-</html>
+<script src="leftPage.js"></script>
