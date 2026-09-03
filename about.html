@@ -333,7 +333,7 @@
   });
 }, observerOptions);
 
-    document.querySelectorAll('.card, h2, label, a').forEach(card => {
+    document.querySelectorAll('.card, h2').forEach(card => {
       card.style.opacity = '0';
       card.style.transform = 'translateY(40px)';
       card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -362,17 +362,7 @@
 
       history.replaceState(null, "", newUrl);
     })();
-  document.addEventListener("click", function(e) {
-    const page = document.querySelector(".left-page");
-
-    if (e.target.closest(".show-page")) {
-        page.classList.add("show-vis");
-    } else if (
-        !e.target.closest(".left-page")
-    ) {
-        page.classList.remove("show-vis");
-    }
-});
+ 
   </script>
 
 
